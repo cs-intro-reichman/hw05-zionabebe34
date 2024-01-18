@@ -11,7 +11,7 @@ public class GameOfLife {
 		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
+		 test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
@@ -63,8 +63,20 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
+
+		for ( int i = 1; i < rows - 1; i++) {
+			Srting readLine = in.readLine(); 
+			for ( int k = 1 ; k < cols - 1 ; k++){
+				if ( readLine.charAt(i) == 'x' ) {
+					board[i][k] = 1; 
+				}
+			}
+		}
+		
+		
+		
+
+		return board;
 	}
 	
 	// Creates a new board from the given board, using the rules of the game.
@@ -100,7 +112,17 @@ public class GameOfLife {
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		//// Write your code here.
+		int rows = arr.length; 
+		int cols = arr[0].length; 
+
+		// Prints the number of rows and columns.
+		for (int i = 1; i < rows - 1; i++) {
+			for (int j = 1; j < cols - 1; j++) {
+				System.out.printf("%3s", arr[i][j]);
+			}
+			System.out.println();
+		}
+
 	}
 		
     // Displays the board. Living and dead cells are represented by black and white squares, respectively.
