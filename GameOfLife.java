@@ -64,17 +64,20 @@ public class GameOfLife {
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
 
-		for ( int i = 1; i < rows - 1; i++) {
-			Srting readLine = in.readLine(); 
-			for ( int k = 1 ; k < cols - 1 ; k++){
-				if ( readLine.charAt(i) == 'x' ) {
-					board[i][k] = 1; 
+		for ( int i = 1; i < board[0].length - 1 ; i++) {
+			int col1 = 1; 
+			String  readLine = in.readLine(); 
+			for ( int k = 0; k < readLine.length(); k++) {
+				if ( readLine.charAt(k) == 'x') {
+					board[i][col1] = 1; 
 				}
+				col1++; 
+
 			}
+
 		}
 		
-		
-		
+	
 
 		return board;
 	}
