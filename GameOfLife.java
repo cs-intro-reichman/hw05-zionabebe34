@@ -14,7 +14,7 @@ public class GameOfLife {
 		///test1(fileName);
 		//// test2(fileName);
 		 test3(fileName, 3);
-		//// play(fileName);
+		 //play(fileName);
 	}
 
 	// Reads the data file and prints the initial board.
@@ -91,10 +91,10 @@ public class GameOfLife {
 	// Uses the cellValue(board,i,j) function to compute the value of each
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
-		int[][] nextBoard = new int [board.length][board[0].length];
+		int[][] nextBoard = new int[board.length][board[0].length];
 
 		for ( int x = 1; x < board.length - 1; x++) {
-			for ( int y = 1; y < board[0].length; y++) {
+			for ( int y = 1; y < board[0].length - 1; y++) {
 				nextBoard[x][y] = cellValue(board, x, y); 
 			}
 		}
@@ -116,23 +116,19 @@ public class GameOfLife {
 		int cellVal = board[i][j]; 
 		int neighbors = count(board, i, j); 
 
-		if (cellVal == 1) {
-			if ( neighbors == 2 || neighbors == 3 ) {
-				cellVal = 1; 
-			} else {
-				cellVal = 0; 
-			}  
-			
-		}else {
-			if ( neighbors == 3) {
-				cellVal = 1; 
+		if ( cellVal == 1 ) {
+			if ( neighbors == 2 || neighbors == 3) {
+				return 1; 
+			} else{
+				return  0; 
+
 			} 
+		} else {
+			if ( neighbors == 3) {
+				return 1; 
+			}
 		}
-
-
-		 
-
-		return cellVal;
+		return 0;
 	}
 
 	// Counts and returns the number of living neighbors of the given cell
@@ -143,8 +139,8 @@ public class GameOfLife {
 	public static int count(int[][] board, int i, int j) {
 		int countNeigh = 0; 
 		for ( int x = i - 1; x <= i + 1; x++) {
-			for ( int y = j - 1; x <= j + 1; j++) {
-				if (board[x][y] == 1 && x != i && j != y ) {
+			for ( int y = j - 1; y <= j + 1; y++) {
+				if (board[x][y] == 1 && (x != i && j != y) ) {
 					countNeigh++; 
 				}
 			}
