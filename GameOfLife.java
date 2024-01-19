@@ -13,8 +13,8 @@ public class GameOfLife {
 		//// (Run one test at a time).
 		///test1(fileName);
 		//// test2(fileName);
-		 test3(fileName, 3);
-		 //play(fileName);
+		test3(fileName, 3);
+		// play(fileName);
 	}
 
 	// Reads the data file and prints the initial board.
@@ -71,7 +71,7 @@ public class GameOfLife {
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
 
-		for (int i = 1; i < board[0].length - 1; i++) {
+		for (int i = 1; i < board.length - 1; i++) {
 			int col1 = 1;
 			String readLine = in.readLine();
 			for (int k = 0; k < readLine.length(); k++) {
