@@ -116,6 +116,8 @@ public class GameOfLife {
 		int cellVal = board[i][j]; 
 		int neighbors = count(board, i, j); 
 
+		//System.out.println("this is the coordinate"+ " " + i + " " + j + " , "+ cellVal+ " :this is the value" + " "+ neighbors + "-----" + "this is the number of neighbors");
+
 		if ( cellVal == 1 ) {
 			if ( neighbors == 2 || neighbors == 3) {
 				return 1; 
@@ -140,7 +142,7 @@ public class GameOfLife {
 		int countNeigh = 0; 
 		for ( int x = i - 1; x <= i + 1; x++) {
 			for ( int y = j - 1; y <= j + 1; y++) {
-				if (board[x][y] == 1 && (x != i && j != y) ) {
+				if (board[x][y] == 1 && !(x == i && y == j) ) {
 					countNeigh++; 
 				}
 			}
